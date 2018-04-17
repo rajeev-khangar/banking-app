@@ -1,0 +1,13 @@
+ <%= bootstrap_form_for [@user], local: true do |form| %>
+  <%= form.text_field :name,  placeholder:"Enter User Name",  icon: "user" %>
+  <%= form.text_field :account_number,  placeholder:"Enter Your Account Number" %>
+
+  <%= form.email_field :email, placeholder: "User email address" %>
+  <%= form.text_field :phone_number, placeholder: "Enter mobile number" %>
+  <%= form.submit "submit", class: "btn btn-info btn-lg" %>
+<% end  %> 
+
+
+
+
+     

@@ -1,0 +1,10 @@
+%p
+  = "Hello #{@user.name}"
+%p
+  - if @statement.deposit.present?
+    = "Your transaction for deposit of #{@statement.deposit} is #{@statement.status}."
+  - else
+    = "Your transaction for withdraw of #{@statement.withdraw} is #{@statement.status}."
+
+Thanks
+

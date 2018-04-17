@@ -1,0 +1,35 @@
+<div class="pull-right">
+  <%= link_to "Back", users_path, class: "btn btn-success" %>
+</div>
+<div class="container">
+  <div class="container table-container">
+    <div class="col-md-12">
+      <h1>Information of User</h1>
+    </div>  
+    <br>
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Account Number</th>
+            
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td><%= @user.id %></td>
+              <td><%= @user.name %></td>
+              <td><%= @user.account_number %></td>
+              <td><%= @user.email %></td>
+              <td><%= @user.phone_number %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
