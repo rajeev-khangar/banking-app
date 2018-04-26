@@ -1,0 +1,30 @@
+<div class="col-md-12">
+  <table class="table table-stripped">
+    <thead>  
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Deposit Amount</th>
+        <th>Withdraw Amount</th>
+        <th>Balance</th>
+        <th>Status</th>
+        
+      </tr>
+    </thead> 
+    <tbody>
+      <% @statements.each do |statement| %>
+        <tr>
+          <td><%= statement.id %></td>
+          <td><%= statement.date.strftime("%Y-%m-%d %H:%M") %></td> 
+          <td><%= statement.deposit %></td> 
+          <td><%= statement.withdraw %></td> 
+          <td><%= statement.total_balance%></td>
+          <td><%= statement.status%></td>     
+         </tr>
+      <% end %>
+    </tbody>
+  </table> 
+</div>
+<div class="pull-right">
+  <%= link_to 'Export Statements',  user_statements_path(@user,format: "csv") + "?" + request.query_string , class: "btn btn-success" %>
+  </div>

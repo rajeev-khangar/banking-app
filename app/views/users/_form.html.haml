@@ -1,0 +1,44 @@
+= bootstrap_form_for [@user], local: true do |form| 
+  .row
+    .col-sm-4
+      = form.text_field :first_name,  placeholder:"enter user first name"
+    .col-sm-4
+      = form.text_field :middle_name, placeholder: "enter user middle name"
+    .col-sm-4
+      = form.text_field :last_name, placeholder: "enter user last name"
+  .row
+    .col-sm-4
+      = form.email_field :email,  placeholder:"email adress"
+    .col-sm-4
+      = form.text_field :phone_number, placeholder: "mobile number"
+    .col-sm-4
+      = form.text_field :aadhaar_number, placeholder: "aadhaar card number"
+  .row 
+    .col-sm-4
+      = form.text_field :pancard_number, placeholder: "pancard card number"    
+  .row
+    = form.fields_for :addresses do |address|
+      .col-sm-4
+        = address.select :address_type, ["Local Address", "Permanent Address"]
+      .col-sm-4
+        = address.text_field :line1_address,  placeholder: "house no/home no"
+      .col-sm-4
+        = address.text_field :line2_address,  placeholder: "line2 address"
+      .col-sm-4
+        = address.text_field :landmark,  placeholder: "landmark"
+      .col-sm-4
+        = address.text_field :district,  placeholder: "district"
+      .col-sm-4
+        = address.text_field :city,  placeholder: "city"
+      .col-sm-4
+        = address.text_field :pincode,  placeholder: "pincode"
+      .col-sm-4
+        = address.text_field :state,  placeholder: "state"
+      .col-sm-4
+        = address.text_field :country,  placeholder: "country"   
+  .row
+    .col-md-2
+      = form.submit "submit", class: "btn btn-success"
+      = link_to "Back", users_path, class: "btn btn-primary"
+
+     

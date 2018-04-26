@@ -1,0 +1,40 @@
+%br
+= search_form_for @q, url: users_path, remote: true do |f|
+  .row
+    .col-md-4
+      .pull-left.filter
+        Account
+      .col-md-8
+        = f.text_field :account_number_eq, placeholder: 'search from account number', value: params[:q].try(:account_number), class: 'form-control'
+    .col-md-4  
+      .pull-left.filter
+        Email
+      .col-md-8
+        = f.text_field :email_cont_all, placeholder: 'search from email', value: params[:q].try(:email), class: 'form-control'
+    .col-md-4
+      .pull-left.filter
+        Aadhaar Number
+      .col-md-8
+        = f.text_field :aadhaar_number_eq, placeholder: 'search from aadhaar number', value: params[:q].try(:email), class: 'form-control'
+  %br
+  .row  
+    .col-md-4  
+      .pull-left.filter
+        First Name
+      .col-md-8
+        = f.text_field :first_name_cont_all, placeholder: 'search from first name', value: params[:q].try(:email), class: 'form-control'
+    .col-md-4  
+      .pull-left.filter
+        Last Name
+      .col-md-8
+        = f.text_field :last_name_cont_all, placeholder: 'search from last name', value: params[:q].try(:email), class: 'form-control'
+    .col-md-4 
+      .pull-left.filter
+        PanCard Number   
+      .col-md-8
+        = f.text_field :pancard_number_eq, placeholder: 'search from pancard number', value: params[:q].try(:email), class: 'form-control'      
+    %br
+    .pull-right.filter
+      = submit_tag "Search", class: "btn btn-primary"
+
+

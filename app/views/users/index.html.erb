@@ -1,42 +1,14 @@
 <div class="pull-right">
   <%= link_to "New User", new_user_path, class: "btn btn-success" %>
+  <%= link_to 'Export All Statements', users_path(format: "csv"), class: "btn btn-success" %>
 </div>
-<div class="container">
-    <div class="col-md-12">
-      <h1> Users List</h1>
-    </div>
-    <div class="col-md-12">
-      <table class="table table-stripped">
-        <thead>  
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Account Number</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Action</th>
-            
-          </tr>
-        </thead> 
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= user.id %></td>
-              <td><%= user.name %></td> 
-              <td><%= user.account_number %></td> 
-              <td><%= user.email %></td> 
-              <td><%= user.phone_number %></td>     
-              <td ><%= link_to '',  edit_user_path(user), class: "btn btn-default glyphicon glyphicon-edit" %>
-              <%= link_to '',  user_path(user), class: "btn btn-default glyphicon glyphicon-eye-open" %>
-              <%= link_to '', user_path(user),
-              method: :delete,
-              data: { confirm: 'Are you sure?' }, class: "btn btn-default glyphicon glyphicon-trash" %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table> 
-    </div>   
+</br>
+<div class="col-md-12">
+  <%= render partial: 'filter' %>
 </div>
- 
+
+
+<div id="users_list">
+  <%= render partial: 'users'%>
+</div> 
 

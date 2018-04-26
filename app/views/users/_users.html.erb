@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="col-md-12">
+    <h3> Users List</h3>
+  </div>
+  <div class="col-md-12 table-responsive">
+    <table class="table table-bordered">
+      <thead>  
+        <tr>
+          <th>Id</th>
+          <th>Full Name</th>
+          <th>Account Number</th>
+          <th>Email</th>
+          <th>Aadhaar Number</th>
+          <th>Phone Number</th>
+          <th>PanCard Number</th>
+          <th>Action</th>
+          <th>Account Information</th>
+          
+        </tr>
+      </thead> 
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= UserDecorator.new(user).full_name %></td> 
+            <td><%= user.account_number %></td> 
+            <td><%= user.email %></td> 
+            <td><%= user.aadhaar_number %></td>
+            <td><%= user.phone_number %></td>
+            <td><%= user.pancard_number %></td>     
+            <td ><%= link_to '',  edit_user_path(user), class: "btn btn-default glyphicon glyphicon-edit" %>
+            <%= link_to '', user_path(user),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }, class: "btn btn-default glyphicon glyphicon-trash" %>
+            <td ><%= link_to 'Balancing',  user_path(user), class: "btn btn-default" %>
+            <%= link_to 'Enquiry',  user_statements_path(user), class: "btn btn-default" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table> 
+  </div>   
+</div>

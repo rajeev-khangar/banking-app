@@ -1,35 +1,54 @@
-<div class="pull-right">
-  <%= link_to "Back", users_path, class: "btn btn-success" %>
-</div>
 <div class="container">
-  <div class="container table-container">
-    <div class="col-md-12">
-      <h1>Information of User</h1>
-    </div>  
-    <br>
-    <div class="col-md-12">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Account Number</th>
-            
-            <th>Email</th>
-            <th>Phone Number</th>
-          </tr>
-        </thead>
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <td> Account Number</td>
+        <td><%= @user.account_number %></td>
+      </tr>
+      <tr>
+        <td> Account Holder Name</td>
+        <td><%= UserDecorator.new(@user).full_name%></td>
+      </tr>
+      <tr>
+        <td> Aadhaar  Number</td>
+        <td><%= @user.aadhaar_number %></td>
+      </tr>
+      <tr>
+        <td> PanCard Number</td>
+        <td><%= @user.pancard_number %></td>
+      </tr>
+      <tr>
+        <td> Contact Number</td>
+        <td><%= @user.phone_number %></td>
+      </tr>
+      <tr>
+        <td> Email Address</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td> Total Balance </td>
+        <td><%= @user.amount.total_amount %></td>
+      </tr>
+      </thead>
+    </table>
 
-        <tbody>
-            <tr>
-              <td><%= @user.id %></td>
-              <td><%= @user.name %></td>
-              <td><%= @user.account_number %></td>
-              <td><%= @user.email %></td>
-              <td><%= @user.phone_number %></td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th > <%= bootstrap_form_for @statement, url: withdraw_user_path(@user),  local: true do |form| %>
+
+            <%= form.text_field :withdraw, placeholder: "enter amount" %>
+            <%= form.submit "Withdraw", class: "btn btn-primary"%>
+            <%end%>
+          </th>
+          <th> <%= bootstrap_form_for @statement, url: deposit_user_path(@user),  local: true do |form| %>
+            <%= form.text_field :deposit, placeholder: "enter amount" %>
+            <%= form.submit "Deposit", class: "btn btn-primary"%>
+            <%end%>
+          </th>
+          </tr>
+      </thead>
+    </table>
   </div>
 </div>

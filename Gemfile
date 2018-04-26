@@ -27,9 +27,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-glyphicons'
 gem "haml"
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'draper'
+gem 'ransack'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -40,6 +43,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem "letter_opener"
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
 
 group :development do

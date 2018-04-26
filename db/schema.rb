@@ -11,16 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417085413) do
+ActiveRecord::Schema.define(version: 20180426063947) do
 
-  create_table "ammounts", force: :cascade do |t|
-    t.float    "total_ammount", default: 0.0
+  create_table "addresses", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "line1_address"
+    t.string   "line2_address"
+    t.string   "landmark"
+    t.string   "district"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "pincode"
+    t.string   "address_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "ammounts", ["user_id"], name: "index_ammounts_on_user_id"
+  create_table "amounts", force: :cascade do |t|
+    t.float    "total_amount", default: 0.0
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "amounts", ["user_id"], name: "index_amounts_on_user_id"
 
   create_table "managers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -54,12 +69,16 @@ ActiveRecord::Schema.define(version: 20180417085413) do
   add_index "statements", ["user_id"], name: "index_statements_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "account_number"
     t.string   "email"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "aadhaar_number"
+    t.string   "pancard_number"
   end
 
 end

@@ -1,5 +1,5 @@
 %p
-  = "Hello #{@user.name}"
+  = "Hello #{UserDecorator.new(@user).full_name}"
 %p
   - if @statement.deposit.present?
     = "Your transaction for deposit of #{@statement.deposit} is #{@statement.status}."
